@@ -1,0 +1,29 @@
+spring:
+  h2:
+    console:
+      path: /h2
+      settings:
+        trace: false
+        web-allow-others: true
+        web-admin-password: root
+      enabled: true
+
+
+  datasource:
+    url: jdbc:h2:file:./data/sample;MODE=MySQL;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+    schema: classpath:db/schema-h2.sql
+    data: classpath:db/data-h2.sql
+
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: varchar
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
