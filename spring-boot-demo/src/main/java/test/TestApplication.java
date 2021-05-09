@@ -3,6 +3,7 @@ package test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import test.spel.User;
 
 /**
@@ -11,6 +12,7 @@ import test.spel.User;
  * @Author J.Star
  * @Date 2021-04-10
  */
+@EnableElasticsearchRepositories
 @SpringBootApplication
 public class TestApplication {
 

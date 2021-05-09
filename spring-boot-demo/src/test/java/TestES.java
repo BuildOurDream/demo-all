@@ -22,6 +22,7 @@ import test.common.GameRole;
 import test.es.util.EsUtil;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -128,7 +129,7 @@ public class TestES {
         System.out.println(JSONUtil.toJsonPrettyStr(response));
     }
 
-    private List<String> randomHobbies(int count) {
+    private static List<String> randomHobbies(int count) {
         ArrayList<String> hobbySource = Lists.newArrayList("打宝图", "挖宝图", "跑商", "运镖", "抓鬼", "杀副本", "杀星", "跑环", "摆摊", "PK", "钓鱼", "聊天");
         if (count >= hobbySource.size()) {
             return hobbySource;
@@ -143,7 +144,7 @@ public class TestES {
         return list;
     }
 
-    private GameRole generateGameRole() {
+    public static GameRole generateGameRole() {
         return generateGameRole(true);
     }
 
@@ -156,19 +157,20 @@ public class TestES {
         return gameRoles;
     }
 
-    private GameRole generateGameRole(boolean withId) {
+    private static GameRole generateGameRole(boolean withId) {
         GameRole gameRole = new GameRole();
         if (withId) {
             gameRole.setId(IdUtil.getSnowflake(1, 1).nextIdStr());
         }
-        gameRole.setLevel(RandomUtil.randomInt(0, 70));
+        gameRole.setLevel(RandomUtil.randomInt(0, 150));
         gameRole.setName(roleNameList.get(RandomUtil.randomInt(0, roleMartialRelMap.keySet().size())));
         gameRole.setMartialArt(randomMartialArt(gameRole.getName()));
+        gameRole.setCreateTime(LocalDateTime.now());
         gameRole.setHobbies(randomHobbies(2));
         return gameRole;
     }
 
-    private String randomMartialArt(String name) {
+    private static String randomMartialArt(String name) {
         List<String> list = roleMartialRelMap.get(name);
         return list.get(RandomUtil.randomInt(0, list.size()));
     }
