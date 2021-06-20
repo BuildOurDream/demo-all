@@ -1,4 +1,4 @@
-package demo.springsecurity.util;
+package demo.util;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.annotation.DbType;

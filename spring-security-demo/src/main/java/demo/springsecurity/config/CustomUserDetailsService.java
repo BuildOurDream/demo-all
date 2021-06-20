@@ -33,7 +33,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
         UserDetails userDetails = User.withUsername(username)
                 .password(BCrypt.hashpw(userEntity.getPassword(), BCrypt.gensalt()))
-                .authorities("admin", "ROLE_admin2").build();
+                .authorities("admin", "ROLE_admin").build();
         return userDetails;
     }
 

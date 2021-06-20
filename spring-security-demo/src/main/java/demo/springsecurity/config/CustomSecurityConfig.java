@@ -45,6 +45,7 @@ public class CustomSecurityConfig extends WebSecurityConfigurerAdapter {
         String h2Path = h2ConsoleProperties.getPath();
         h2Path = h2Path.endsWith("/") ? h2Path + "**" : h2Path + "/**";
         http.exceptionHandling().accessDeniedPage("/unAuth.html")
+//                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
                 //关闭csrf防护
                 .and().csrf().disable();
 
@@ -62,7 +63,7 @@ public class CustomSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().authorizeRequests()
                 .antMatchers(h2Path).permitAll()
                 //该路径只有admin角色能访问
-                .antMatchers("/index").hasAnyRole("admin")
+                .antMatchers("/test").hasAnyRole("admin")
                 .anyRequest().authenticated()
                 .and().csrf().ignoringAntMatchers(h2Path)
                 .and().headers().frameOptions().sameOrigin()

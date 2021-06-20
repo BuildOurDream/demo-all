@@ -4,3 +4,6 @@ create table persistent_logins (username varchar(64) not null, series varchar(64
 2021-03-25 21:42:36 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PERSISTENT_LOGINS" already exists; SQL statement:
 create table persistent_logins (username varchar(64) not null, series varchar(64) primary key, token varchar(64) not null, last_used timestamp not null) [42101-200]
+2021-05-23 22:06:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PERSISTENT_LOGINS" already exists; SQL statement:
+create table persistent_logins (username varchar(64) not null, series varchar(64) primary key, token varchar(64) not null, last_used timestamp not null) [42101-200]

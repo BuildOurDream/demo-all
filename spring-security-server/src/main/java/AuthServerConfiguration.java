@@ -78,7 +78,7 @@ public class AuthServerConfiguration {
                     authorizationGrantTypes.add(AuthorizationGrantType.AUTHORIZATION_CODE);
                     authorizationGrantTypes.add(AuthorizationGrantType.REFRESH_TOKEN);
                 })
-                .redirectUri("https://pig4cloud.com")
+                .redirectUri("https://www.baidu.com")
                 .build();
         return new InMemoryRegisteredClientRepository(client);
     }
