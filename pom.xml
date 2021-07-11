@@ -19,6 +19,7 @@
         <module>spring-security-server</module>
         <module>demo-common</module>
         <module>design-pattern</module>
+        <module>data-structure</module>
     </modules>
 
     <properties>
