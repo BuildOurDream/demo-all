@@ -4,3 +4,7 @@ spring:
     port: 5672
     username: admin
     password: 123
+    #消息成功发送到交换机确认
+    publisher-confirm-type: correlated
+    #消息不可达到目的地时将消息返回给生产者,当与备份交换机同时存在时,以备份交换机为准
+    publisher-returns: true
