@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-cmmon</artifactId>
+    <artifactId>demo-sharding-sphere</artifactId>
 
     <dependencies>
         <dependency>
@@ -17,5 +17,4 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
-
 </project>

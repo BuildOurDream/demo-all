@@ -64,10 +64,11 @@ public class DeadLetterQueueConsumer {
      * @param message
      * @param channel
      */
-    @RabbitListener(queues = RabbitMqConfiguration.WARNING_QUEUE)
-    public void warning(Message message, Channel channel) {
+    @RabbitListener(queues = RabbitMqConfiguration.WARNING_QUEUE, ackMode = "MANUAL")
+    public void warning(Message message, Channel channel) throws IOException {
         String msg = new String(message.getBody(), StandardCharsets.UTF_8);
         log.info(RabbitMqConfiguration.WARNING_QUEUE + "收到不可路由消息: " + msg);
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
 
     /**

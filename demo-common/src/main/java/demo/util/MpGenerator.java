@@ -50,7 +50,7 @@ public class MpGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/spring-security-demo/src/main/java");
+        gc.setOutputDir(projectPath + "/demo-sharding-sphere/src/main/java");
         gc.setAuthor("J.Star");
         gc.setFileOverride(true);
         gc.setEntityName("%sEntity");
@@ -62,17 +62,22 @@ public class MpGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:h2:file:./data/sample;MODE=MySQL;AUTO_SERVER=TRUE");
+        /*dsc.setUrl("jdbc:h2:file:./data/sample;MODE=MySQL;AUTO_SERVER=TRUE");
         dsc.setDriverName("org.h2.Driver");
         dsc.setUsername("sa");
         dsc.setPassword("sa");
-        dsc.setDbType(DbType.H2);
+        dsc.setDbType(DbType.H2);*/
+        dsc.setUrl("jdbc:mysql://192.168.2.176:3306/test?serverTimezone=GMT%2B8");
+        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+        dsc.setUsername("root");
+        dsc.setPassword("123456");
+        dsc.setDbType(DbType.MYSQL);
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
 //        pc.setModuleName(scanner("模块名"));
-        pc.setParent("demo.springsecurity");
+        pc.setParent("demo");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -95,7 +100,7 @@ public class MpGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/spring-security-demo/src/main/resources/mapper/"
+                return projectPath + "/demo-sharding-sphere/src/main/resources/mapper/"
                         + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
@@ -139,7 +144,7 @@ public class MpGenerator {
 //        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
 //        strategy.setSuperEntityColumns("id");
-        strategy.setInclude(scanner("表名，多个英文逗号分割").toUpperCase().split(","));
+        strategy.setInclude(scanner("表名，多个英文逗号分割")/*.toUpperCase()*/.split(","));
         strategy.setControllerMappingHyphenStyle(true);
         mpg.setStrategy(strategy);
         mpg.execute();

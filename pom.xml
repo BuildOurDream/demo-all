@@ -21,6 +21,7 @@
         <module>design-pattern</module>
         <module>data-structure</module>
         <module>demo-rabbitmq</module>
+        <module>demo-sharding-sphere</module>
     </modules>
 
     <properties>
