@@ -11,9 +11,11 @@
 
     <artifactId>data-structure</artifactId>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>demo</groupId>
+            <artifactId>demo-common</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

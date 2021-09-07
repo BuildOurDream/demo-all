@@ -13,8 +13,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>demo</groupId>
+            <artifactId>demo-common</artifactId>
         </dependency>
     </dependencies>
 </project>

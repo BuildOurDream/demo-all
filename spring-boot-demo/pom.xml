@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>demo</groupId>
-            <artifactId>demo-cmmon</artifactId>
+            <artifactId>demo-common</artifactId>
         </dependency>
         <!-- SpringBoot默认使用SpringData 进行Elasticsearch操作  -->
         <dependency>

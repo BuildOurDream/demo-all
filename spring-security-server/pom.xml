@@ -12,6 +12,10 @@
     <artifactId>spring-security-server</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>demo</groupId>
+            <artifactId>demo-common</artifactId>
+        </dependency>
         <!--oauth2 server-->
         <dependency>
             <groupId>org.springframework.security.experimental</groupId>
