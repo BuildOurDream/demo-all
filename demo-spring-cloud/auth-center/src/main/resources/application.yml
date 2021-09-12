@@ -1,0 +1,21 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: auth-center
+  cloud:
+    consul:
+      host: 192.168.2.176
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        service-name: ${spring.application.name}
+        register: true
+        health-check-interval: 5s
+        health-check-path: /actuator/health
+        register-health-check: true
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
