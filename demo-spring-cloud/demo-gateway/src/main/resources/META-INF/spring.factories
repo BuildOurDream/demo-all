@@ -1,0 +1,6 @@
+org.springframework.context.ApplicationContextInitializer=\
+  demo.gateway.config.CustomApplicationContextInitializer
+org.springframework.context.ApplicationListener=\
+  demo.gateway.config.CustomApplicationListener
+org.springframework.boot.SpringApplicationRunListener=\
+  demo.gateway.config.CustomSpringRunListener

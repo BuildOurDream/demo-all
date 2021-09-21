@@ -32,14 +32,11 @@ spring:
            - Path=/test
 
 management:
-  server:
-    port: 19000
-    address:
   endpoints:
     enabled-by-default: true
     web:
       exposure:
-        include: gateway,health
+        include: '*'
   endpoint:
     gateway:
       enabled: true

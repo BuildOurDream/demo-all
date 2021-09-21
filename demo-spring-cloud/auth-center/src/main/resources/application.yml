@@ -14,8 +14,29 @@ spring:
         health-check-interval: 5s
         health-check-path: /actuator/health
         register-health-check: true
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:19000
+        instance:
+          prefer-ip: true
 
 springfox:
   documentation:
     swagger-ui:
       enabled: true
+
+management:
+  endpoints:
+    # 开启所有端点
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app-name: @project.artifactId@
+  app-version: @project.version@
