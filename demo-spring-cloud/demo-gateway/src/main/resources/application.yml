@@ -18,6 +18,7 @@ spring:
         metadata:
           key1: value1
           key2: value2
+        prefer-ip-address: true
 
     gateway:
       discovery:
@@ -30,6 +31,10 @@ spring:
          uri: https://www.bilibili.com/
          predicates:
            - Path=/test
+  boot:
+    admin:
+      discovery:
+        ignored-services: consul
 
 management:
   endpoints:
@@ -40,4 +45,3 @@ management:
   endpoint:
     gateway:
       enabled: true
-

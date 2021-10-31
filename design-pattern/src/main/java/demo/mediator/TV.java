@@ -6,16 +6,19 @@ package demo.mediator;
  * @Author J.Star
  * @Date 2021-06-20
  */
-public class Alarm extends HomeAppliance {
+public class TV extends HomeAppliance {
 
-    public Alarm(Mediator mediator, String name) {
+    public TV(Mediator mediator, String name) {
         super(mediator, name);
         mediator.register(name, this);
     }
 
-    public void sendAlarm(int stateChange) {
-        System.out.println("闹钟响了");
-        sendMessage(stateChange);
+    public void open() {
+        System.out.println("打开电视");
+    }
+
+    public void stop() {
+        System.out.println("关闭电视");
     }
 
     @Override

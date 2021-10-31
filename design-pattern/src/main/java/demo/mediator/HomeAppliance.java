@@ -6,13 +6,13 @@ package demo.mediator;
  * @Author J.Star
  * @Date 2021-06-20
  */
-public abstract class Colleague {
+public abstract class HomeAppliance {
 
     private Mediator mediator;
 
     private String name;
 
-    public Colleague(Mediator mediator, String name) {
+    public HomeAppliance(Mediator mediator, String name) {
         this.mediator = mediator;
         this.name = name;
     }

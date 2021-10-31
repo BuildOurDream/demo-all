@@ -14,10 +14,12 @@ spring:
         health-check-interval: 5s
         health-check-path: /actuator/health
         register-health-check: true
+        prefer-ip-address: true
+
   boot:
     admin:
       client:
-        url: http://127.0.0.1:19000
+        url: http://127.0.0.1:9000
         instance:
           prefer-ip: true
 
