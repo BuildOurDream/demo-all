@@ -23,6 +23,7 @@
         <module>demo-rabbitmq</module>
         <module>demo-sharding-sphere</module>
         <module>demo-spring-cloud</module>
+        <module>demo-netty</module>
     </modules>
 
     <properties>

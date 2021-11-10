@@ -9,22 +9,17 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-demo</artifactId>
+    <artifactId>demo-netty</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>demo</groupId>
             <artifactId>demo-common</artifactId>
         </dependency>
-        <!-- SpringBoot默认使用SpringData 进行Elasticsearch操作  -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
         </dependency>
     </dependencies>
+
 </project>
