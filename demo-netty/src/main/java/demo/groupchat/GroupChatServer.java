@@ -8,6 +8,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.timeout.IdleStateHandler;
 
 /**
  * <p></p>
@@ -36,6 +39,7 @@ public class GroupChatServer {
             ServerBootstrap serverBootstrap = new ServerBootstrap()
                     .group(boosGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .option(ChannelOption.SO_KEEPALIVE, true)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
@@ -46,6 +50,10 @@ public class GroupChatServer {
                                     .addLast("decoder", new StringDecoder())
                                     //编码器
                                     .addLast("encoder", new StringDecoder())
+                                    //监听空闲事件
+                                    .addLast(new IdleStateHandler(5, 7, 9))
+                                    //处理空闲事件
+                                    .addLast(new IdleEventHandler())
                                     //自己的业务处理器
                                     .addLast(new GroupChatServerHandler());
                         }
