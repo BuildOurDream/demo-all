@@ -1,11 +1,9 @@
 package demo.juc;
 
 import cn.hutool.core.util.RandomUtil;
+import org.junit.jupiter.api.Test;
 
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * <p></p>
@@ -115,6 +113,19 @@ public class Main {
                 }
             }, String.valueOf(i + 1)).start();
         }
+    }
+
+    @Test
+    void testCo() {
+        CompletableFuture completableFuture = CompletableFuture.supplyAsync(()-> {
+//            try {
+////                TimeUnit.SECONDS.sleep(3);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+            return "asdasd";
+        }).thenAccept(System.out::println);
+        System.out.println(1122131);
     }
 
 }

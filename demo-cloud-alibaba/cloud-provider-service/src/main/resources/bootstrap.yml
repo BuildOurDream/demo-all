@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: provider-service
+
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      username: nacos
+      password: nacos
+      config:
+        namespace: 96bfd488-0426-44b8-90b3-6fe7dfb9f477
+        group: user
+        file-extension: yaml
+        #使用name直接指定data-id
+#        name: provider-service1.yaml
+        shared-configs:
+          - data-id: share.yaml
+            group: share
+            refresh: true
+        extension-configs:
+          - data-id: provider-extension.yaml
+            group: extension
+            refresh: true
+sentinel
