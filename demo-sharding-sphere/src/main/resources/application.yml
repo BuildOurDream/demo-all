@@ -1,12 +1,46 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.2.176:3306/test?serverTimezone=UTC
+    url: jdbc:mysql://192.168.2.176:3306/course?serverTimezone=GMT%2B8
     username: root
     password: 123456
+    hikari:
+      connection-test-query: select 1
   main:
     #一个实体类对应多张表,覆盖
     allow-bean-definition-overriding: true
+  shardingsphere:
+    datasource:
+      names: ds1
+      ds1:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.2.176:3306/course?serverTimezone=GMT%2B8
+        username: root
+        password: 123456
+        type: com.zaxxer.hikari.HikariDataSource
+    sharding:
+      tables:
+        course:
+          # 表在哪个数据库里面,表名称是什么,使用行表达式
+          actual-data-nodes: ds1.course_$->{1..2}
+          # 主键及主键生成策略
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+          # 分表策略 id值偶数添加到course_1,奇数添加到course_2
+          table-strategy:
+            inline:
+              sharding-column: id
+              algorithm-expression: course_$->{id % 2 + 1}
+          # 分库策略
+#          database-strategy:
+#            inline:
+#              sharding-column: uid
+#              algorithm-expression: ds$->{uid % 2 + 1}
+
+    props:
+      sql:
+        show: true
 
 mybatis-plus:
   mapper-locations: classpath*:mapper/*Mapper.xml
@@ -29,4 +63,3 @@ mybatis-plus:
     #mybatis默认会走本地缓存(一级缓存)，清空localCache
     local-cache-scope: statement
     jdbc-type-for-null: 'null' #注意：单引号
-

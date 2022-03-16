@@ -1,5 +1,7 @@
 package demo.adapter;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +27,8 @@ public class Client {
         }
     }
 
-
-    public static void main(String[] args) {
+    @Test
+    void test2() {
         Client client = new Client();
         client.doHandle(new SimpleHandler());
         client.doHandle(new HardHandler());

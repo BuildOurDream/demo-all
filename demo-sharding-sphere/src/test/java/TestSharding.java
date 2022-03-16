@@ -1,6 +1,6 @@
 import demo.ShardingSphereApplication;
-import demo.entity.EmployeeEntity;
-import demo.service.EmployeeService;
+import demo.entity.Course;
+import demo.mapper.CourseMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,15 +15,24 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class TestSharding {
 
     @Autowired
-    private EmployeeService employeeService;
+    private CourseMapper courseMapper;
 
     @Test
-    public void test1() {
-        EmployeeEntity entity = new EmployeeEntity();
-        entity.setName("test")
-                .setAge(10);
-        employeeService.save(entity);
-        System.out.println(entity.getId());
+    public void insert() {
+        Course course = new Course();
+        course.setCname("aaa");
+        course.setUserId(11L);
+        course.setStatus("ooo");
+        courseMapper.insert(course);
+        courseMapper.insert(course);
+        courseMapper.insert(course);
+        courseMapper.insert(course);
+    }
+
+    @Test
+    public void query() {
+        courseMapper.selectById(708825542157139968L);
+        courseMapper.selectById(708825770994171905L);
     }
 
 }
