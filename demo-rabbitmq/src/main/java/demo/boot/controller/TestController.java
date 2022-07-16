@@ -41,7 +41,7 @@ public class TestController {
     }
 
     /**
-     * 基于插件的延时队列 更加灵活
+     * 基于插件(rabbitmq_delayed_message_exchange)的延时队列 更加灵活
      *
      * @param message
      * @param delayTime

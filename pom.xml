@@ -24,6 +24,8 @@
         <module>demo-sharding-sphere</module>
         <module>demo-spring-cloud</module>
         <module>demo-netty</module>
+        <module>demo-mybatis</module>
+        <module>demo-cloud-alibaba</module>
     </modules>
 
     <properties>

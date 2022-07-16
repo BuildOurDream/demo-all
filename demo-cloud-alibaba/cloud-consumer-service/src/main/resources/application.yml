@@ -1,0 +1,31 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: consumer-service
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      username: nacos
+      password: nacos
+#      discovery:
+#        namespace: dev
+
+feign:
+  okhttp:
+    enabled: true
+  client:
+    config:
+      provider-service:
+        readTimeout: 3000
+        connectTimeout: 1000
+ribbon:
+  eager-load:
+    enabled: true
+    clients: provider-service
+  okhttp:
+    enabled: true
+
+logging:
+  level:
+    consumer.feign: debug

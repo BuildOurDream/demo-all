@@ -9,6 +9,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 import java.util.Scanner;
 
@@ -39,7 +41,8 @@ public class GroupChatClient {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast("encoder", new StringEncoder())
+                            ch.pipeline().addLast(new LoggingHandler(LogLevel.INFO))
+                                    .addLast("encoder", new StringEncoder())
                                     .addLast("decoder", new StringDecoder())
                                     .addLast(new GroupChatClientHandler());
                         }
@@ -47,6 +50,7 @@ public class GroupChatClient {
 
             ChannelFuture channelFuture = bootstrap.connect(host, port).sync();
             Channel channel = channelFuture.channel();
+            channelFuture.channel().closeFuture().sync();
             System.out.println("======================= " + channel.localAddress() + " =============================");
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNext()) {
