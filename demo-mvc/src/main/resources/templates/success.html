@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${msg}">哈哈</h1>
+<h2>
+    <a th:href="${url}">点击访问</a>
+    <a href="http://www.bilibili.com" th:href="@{/main}">点击访问</a>
+</h2>
+</body>
+</html>

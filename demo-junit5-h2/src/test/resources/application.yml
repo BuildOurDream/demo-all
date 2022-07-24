@@ -1,0 +1,21 @@
+spring:
+  h2:
+    console:
+      path: /h2
+      settings:
+        trace: false
+        web-allow-others: true
+        web-admin-password: root
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:./data/he;MODE=MySQL;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+    initialization-mode: ALWAYS
+    schema: classpath:db/schema-h2.sql
+    data: classpath:db/data-h2.sql
+hello:
+  prefix: 早上好
+  suffix: 欢迎光临

@@ -26,6 +26,10 @@
         <module>demo-netty</module>
         <module>demo-mybatis</module>
         <module>demo-cloud-alibaba</module>
+        <module>demo-mvc</module>
+        <module>demo-junit5-h2</module>
+        <module>custom-spring-boot-starter</module>
+        <module>custom-spring-boot-starter-autoconfigure</module>
     </modules>
 
     <properties>

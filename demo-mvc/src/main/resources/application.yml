@@ -1,0 +1,12 @@
+spring:
+  mvc:
+    contentnegotiation:
+      favor-parameter: true
+      media-types:
+        json: application/json
+        xml: application/xml
+        x-test: application/x-test
+
+server:
+  servlet:
+    context-path: /mvc
